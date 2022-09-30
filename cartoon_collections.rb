@@ -11,12 +11,10 @@ def summon_captain_planet words
 end
 
 def long_planeteer_calls list
-  found = list.select { |call| call.length > 4 }
-  found.length > 0 ? true : false
+  list.any? { |call| call.length > 4 }
 end
 
 def find_the_cheese food_items
   cheese_types = ["cheddar", "gouda", "camembert"]
-  found_food = food_items.select { |item| cheese_types.include?(item) }
-  found_food.pop
+  food_items.find { |item| cheese_types.include?(item) }
 end
